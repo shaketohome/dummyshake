@@ -1,0 +1,108 @@
+:root {
+    --primary: #ff5200;
+    --primary-light: #fff0e8;
+    --dark: #282c3f;
+    --text-muted: #686b78;
+    --bg-color: #f8f9fa;
+    --white: #ffffff;
+    --border: #e9ecee;
+    --success: #118a2e;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; -webkit-tap-highlight-color: transparent; }
+body { background-color: var(--bg-color); color: var(--dark); padding-top: 64px; padding-bottom: 90px; }
+
+/* Premium Header with Logo */
+.app-header { position: fixed; top: 0; left: 0; width: 100%; height: 64px; background: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 0 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); z-index: 100; }
+.brand { display: flex; align-items: center; gap: 8px; }
+.logo-icon { width: 32px; height: 32px; background: var(--primary-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.logo-icon svg { width: 22px; height: 22px; }
+.brand h1 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; color: var(--dark); }
+.header-actions { display: flex; gap: 16px; align-items: center; }
+.icon-btn { position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--dark); }
+.icon-btn svg { width: 26px; height: 26px; }
+.cart-badge { position: absolute; top: -6px; right: -8px; background: var(--primary); color: var(--white); font-size: 0.7rem; font-weight: 800; min-width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 2px; }
+
+/* Hero Section with Large Logo */
+.hero { background: var(--white); padding: 24px 16px; margin-bottom: 12px; text-align: center; border-radius: 0 0 20px 20px; box-shadow: var(--shadow-soft); }
+.hero-logo { width: 64px; height: 64px; margin: 0 auto 16px; background: var(--primary-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+.hero-logo svg { width: 40px; height: 40px; }
+.hero h2 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 24px; font-weight: 800; }
+.hero h2 span { color: var(--text-muted); font-size: 1.05rem; font-weight: 500; display: block; margin-top: 4px; }
+.input-group { display: flex; align-items: center; background: var(--bg-color); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; border: 1px solid var(--border); transition: border 0.2s ease; }
+.input-group:focus-within { border-color: var(--primary); }
+.input-group svg { width: 20px; height: 20px; margin-right: 12px; flex-shrink: 0; }
+.input-group input { border: none; background: transparent; width: 100%; font-size: 0.95rem; outline: none; color: var(--dark); font-weight: 600; }
+.search-group { background: var(--white); border-color: var(--border); }
+
+/* Grid & Cards */
+.menu-section { padding: 0 16px; }
+.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.card { background: var(--white); border-radius: 16px; padding: 8px; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.02); }
+.card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; margin-bottom: 8px; background: var(--bg-color); }
+.card-content { display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+.card-title { font-size: 0.8rem; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-price { font-size: 0.85rem; color: var(--dark); font-weight: 800; margin-bottom: 10px; }
+
+/* Buttons (Premium Swiggy feel) */
+.btn-wrapper { height: 42px; width: 100%; margin-top: auto; }
+.btn-add { width: 100%; height: 100%; background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary); border-radius: 10px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+.btn-qty { width: 100%; height: 100%; background: var(--primary); color: var(--white); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 800; animation: popIn 0.2s ease-out; box-shadow: 0 4px 10px rgba(255, 82, 0, 0.3); }
+.btn-qty button { width: 33.33%; height: 100%; background: transparent; border: none; color: var(--white); font-size: 1.2rem; cursor: pointer; }
+.btn-qty span { width: 33.33%; text-align: center; font-size: 0.9rem; }
+
+/* Sticky Bottom Cart */
+.bottom-cart { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-heavy); border-radius: 20px 20px 0 0; transform: translateY(120%); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1); z-index: 999; }
+.bottom-cart.visible { transform: translateY(0); }
+.cart-info { display: flex; flex-direction: column; }
+#bottom-cart-items { font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
+#bottom-cart-total { font-size: 1.2rem; font-weight: 800; color: var(--dark); }
+.order-btn { background: var(--primary); color: var(--white); border: none; border-radius: 12px; padding: 0 20px; height: 50px; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 82, 0, 0.25); }
+
+/* MODALS */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 2000; }
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+.modal-content { background: var(--bg-color); width: 100%; max-width: 500px; border-radius: 24px 24px 0 0; padding: 24px 16px 32px; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: var(--shadow-heavy); }
+.modal-overlay.active .modal-content { transform: translateY(0); }
+
+/* Premium Payment UI */
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.modal-header h3 { font-size: 1.2rem; font-weight: 800; }
+.close-btn { font-size: 1.8rem; line-height: 1; color: var(--text-muted); cursor: pointer; }
+
+.amount-card { background: var(--white); padding: 16px; border-radius: 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-soft); }
+.amount-card span { font-size: 0.95rem; color: var(--text-muted); font-weight: 600; }
+.amount-card strong { font-size: 1.4rem; color: var(--dark); font-weight: 800; }
+
+.payment-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.pay-option { display: flex; align-items: center; padding: 16px; border: 2px solid var(--border); border-radius: 14px; cursor: pointer; transition: all 0.2s ease; background: var(--white); }
+.pay-option input { display: none; }
+.pay-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--bg-color); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-right: 16px; }
+.pay-label { font-weight: 700; font-size: 1.05rem; color: var(--dark); flex-grow: 1; }
+
+.pay-option.selected { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 4px 12px rgba(255, 82, 0, 0.15); }
+.pay-option.selected .pay-icon { background: var(--white); }
+
+/* UPI Logos Grid */
+.small-text { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.upi-apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 10px; }
+.upi-app-btn { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 14px 8px; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: all 0.2s; box-shadow: var(--shadow-soft); }
+.upi-app-btn img { height: 32px; width: auto; object-fit: contain; }
+.upi-app-btn span { font-size: 0.8rem; font-weight: 700; color: var(--dark); }
+
+.action-btn { width: 100%; justify-content: center; margin-top: 10px; height: 54px; font-size: 1.1rem; border-radius: 14px; }
+
+/* Post Payment Modal */
+.post-payment-content { text-align: center; padding: 40px 24px; }
+.success-icon { width: 72px; height: 72px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 4px 16px rgba(17, 138, 46, 0.3); }
+.success-icon svg { width: 36px; height: 36px; }
+.post-payment-content h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+.post-payment-content p { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; line-height: 1.5; }
+.success-btn { background: var(--success); box-shadow: 0 4px 12px rgba(17, 138, 46, 0.3); }
+
+/* Animations */
+.tap-effect { transition: transform 0.1s ease; }
+.tap-effect:active { transform: scale(0.96); }
+@keyframes popIn { 0% { transform: scale(0.85); } 100% { transform: scale(1); } }
